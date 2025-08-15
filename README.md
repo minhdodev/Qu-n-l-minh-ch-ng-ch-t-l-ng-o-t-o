@@ -110,3 +110,4 @@ This is a front-end prototype. In a production environment, you would need:
 ## License
 
 This project is available under the MIT License. # Quan_li_minh_chung
+# Quan_li_minh_chung
