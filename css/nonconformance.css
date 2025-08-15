@@ -1,0 +1,407 @@
+/* Nonconformance Page Specific Styles */
+
+.nonconformance {
+    padding: 1rem 0;
+}
+
+/* NCR Dashboard */
+.ncr-dashboard {
+    margin-bottom: 2rem;
+}
+
+.ncr-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.ncr-stat-card {
+    background-color: var(--bg-card);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ncr-stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.ncr-stat-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-medium);
+}
+
+.ncr-stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.ncr-stat-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* NCR Tabs */
+.ncr-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--border-light);
+    margin-bottom: 1.5rem;
+}
+
+.ncr-tabs .tab {
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    color: var(--text-medium);
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.ncr-tabs .tab:hover {
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+}
+
+.ncr-tabs .tab.active {
+    color: var(--primary);
+    border-bottom: 2px solid var(--primary);
+}
+
+/* NCR List */
+.ncr-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ncr-list th {
+    background-color: var(--bg-light);
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    text-align: left;
+    color: var(--text-medium);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.ncr-list td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.ncr-list tr:hover {
+    background-color: var(--bg-hover);
+}
+
+.ncr-list tr:last-child td {
+    border-bottom: none;
+}
+
+/* NCR Status */
+.ncr-status {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.ncr-status.open {
+    background-color: rgba(76, 175, 80, 0.15);
+    color: #2e7d32;
+}
+
+.ncr-status.in-progress {
+    background-color: rgba(33, 150, 243, 0.15);
+    color: #1976d2;
+}
+
+.ncr-status.pending {
+    background-color: rgba(255, 193, 7, 0.15);
+    color: #ff8f00;
+}
+
+.ncr-status.closed {
+    background-color: rgba(158, 158, 158, 0.15);
+    color: #616161;
+}
+
+/* NCR Priority */
+.ncr-priority {
+    display: inline-flex;
+    align-items: center;
+}
+
+.priority-indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
+
+.priority-high {
+    background-color: #f44336;
+}
+
+.priority-medium {
+    background-color: #ff9800;
+}
+
+.priority-low {
+    background-color: #4caf50;
+}
+
+/* NCR Form */
+.ncr-form .form-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.ncr-form .form-group {
+    flex: 1;
+}
+
+.ncr-form .form-group.full-width {
+    flex: 0 0 100%;
+}
+
+.ncr-form .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.ncr-form .form-group input,
+.ncr-form .form-group select,
+.ncr-form .form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 0.95rem;
+}
+
+.ncr-form .form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.ncr-form .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* File Attachment */
+.file-attachment {
+    border: 2px dashed var(--border-color);
+    border-radius: 6px;
+    padding: 1.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.file-attachment:hover {
+    border-color: var(--primary);
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.file-attachment i {
+    font-size: 2rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.file-attachment p {
+    margin: 0;
+    color: var(--text-medium);
+}
+
+.file-attachment .small {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+}
+
+.attached-files {
+    margin-top: 1rem;
+}
+
+.attached-file {
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-light);
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.attached-file i {
+    margin-right: 0.5rem;
+    color: var(--text-muted);
+}
+
+.attached-file .filename {
+    flex: 1;
+    font-size: 0.9rem;
+}
+
+.attached-file .filesize {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-right: 1rem;
+}
+
+.attached-file .remove-file {
+    color: var(--danger);
+    cursor: pointer;
+}
+
+/* CAPA Section */
+.capa-section {
+    background-color: var(--bg-light);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.capa-section h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.capa-actions {
+    margin-bottom: 2rem;
+}
+
+.action-item {
+    background-color: var(--bg-card);
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.action-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.action-title {
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.action-status {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.action-status.pending {
+    background-color: rgba(255, 193, 7, 0.15);
+    color: #ff8f00;
+}
+
+.action-status.completed {
+    background-color: rgba(76, 175, 80, 0.15);
+    color: #2e7d32;
+}
+
+.action-status.overdue {
+    background-color: rgba(244, 67, 54, 0.15);
+    color: #d32f2f;
+}
+
+.action-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.action-detail {
+    display: flex;
+    align-items: center;
+}
+
+.action-detail i {
+    margin-right: 0.5rem;
+    color: var(--text-muted);
+}
+
+.action-description {
+    font-size: 0.9rem;
+    color: var(--text-medium);
+    margin-bottom: 0.75rem;
+}
+
+.action-progress {
+    margin-top: 0.5rem;
+}
+
+.progress-bar-container {
+    background-color: rgba(0, 0, 0, 0.1);
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: var(--primary);
+    border-radius: 4px;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* Responsiveness */
+@media (max-width: 1200px) {
+    .ncr-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .ncr-form .form-row {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .ncr-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .ncr-tabs {
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    .ncr-tabs .tab {
+        padding: 0.75rem 1rem;
+    }
+} 

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quality Management System - Settings</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>QMS</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="documents.html">Documents</a></li>
+                <li><a href="processes.html">Processes</a></li>
+                <li><a href="audits.html">Audits</a></li>
+                <li><a href="training.html">Training</a></li>
+                <li><a href="reports.html">Reports</a></li>
+            </ul>
+        </nav>
+        <div class="user-profile">
+            <span class="username">Admin User</span>
+            <div class="dropdown">
+                <img src="../images/avatar.png" alt="User Avatar" class="avatar">
+                <div class="dropdown-content">
+                    <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                    <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+        <button class="mobile-menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="dashboard.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="documents.html"><i class="fas fa-file-alt"></i> Document Control</a></li>
+                <li><a href="processes.html"><i class="fas fa-tasks"></i> Process Management</a></li>
+                <li><a href="audits.html"><i class="fas fa-clipboard-check"></i> Audit Management</a></li>
+                <li><a href="nonconformance.html"><i class="fas fa-exclamation-triangle"></i> Nonconformance</a></li>
+                <li><a href="metrics.html"><i class="fas fa-chart-line"></i> Performance Metrics</a></li>
+                <li><a href="training.html"><i class="fas fa-book"></i> Training Records</a></li>
+                <li class="admin-only"><a href="user-management.html"><i class="fas fa-users"></i> User Management</a></li>
+                <li><a href="settings.html" class="active"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <section class="settings">
+                <div class="section-header">
+                    <h2>System Settings</h2>
+                </div>
+                
+                <div class="settings-tabs">
+                    <div class="tab active" data-tab="general">General</div>
+                    <div class="tab" data-tab="notifications">Notifications</div>
+                    <div class="tab" data-tab="security">Security</div>
+                    <div class="tab" data-tab="customization">Customization</div>
+                    <div class="tab admin-only" data-tab="system">System</div>
+                </div>
+                
+                <div class="tab-content active" id="general">
+                    <form class="settings-form">
+                        <div class="form-section">
+                            <h3>Company Information</h3>
+                            <div class="form-group">
+                                <label for="company-name">Company Name</label>
+                                <input type="text" id="company-name" value="ABC Manufacturing Inc.">
+                            </div>
+                            <div class="form-group">
+                                <label for="company-address">Address</label>
+                                <textarea id="company-address">123 Quality Street, Production City, QM 12345</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="company-phone">Phone</label>
+                                <input type="tel" id="company-phone" value="+1 (123) 456-7890">
+                            </div>
+                            <div class="form-group">
+                                <label for="company-email">Email</label>
+                                <input type="email" id="company-email" value="contact@abcmanufacturing.com">
+                            </div>
+                        </div>
+                        
+                        <div class="form-section">
+                            <h3>Regional Settings</h3>
+                            <div class="form-group">
+                                <label for="timezone">Timezone</label>
+                                <select id="timezone">
+                                    <option value="UTC-8">Pacific Time (UTC-8)</option>
+                                    <option value="UTC-7">Mountain Time (UTC-7)</option>
+                                    <option value="UTC-6">Central Time (UTC-6)</option>
+                                    <option value="UTC-5" selected>Eastern Time (UTC-5)</option>
+                                    <option value="UTC">UTC</option>
+                                    <option value="UTC+1">Central European Time (UTC+1)</option>
+                                    <option value="UTC+8">China Standard Time (UTC+8)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="date-format">Date Format</label>
+                                <select id="date-format">
+                                    <option value="MM/DD/YYYY" selected>MM/DD/YYYY</option>
+                                    <option value="DD/MM/YYYY">DD/MM/YYYY</option>
+                                    <option value="YYYY-MM-DD">YYYY-MM-DD</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="language">Language</label>
+                                <select id="language">
+                                    <option value="en" selected>English</option>
+                                    <option value="es">Español</option>
+                                    <option value="fr">Français</option>
+                                    <option value="de">Deutsch</option>
+                                    <option value="zh">中文</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-section">
+                            <h3>Dashboard Settings</h3>
+                            <div class="form-group">
+                                <label for="default-dashboard">Default Dashboard</label>
+                                <select id="default-dashboard">
+                                    <option value="quality" selected>Quality Dashboard</option>
+                                    <option value="document">Document Dashboard</option>
+                                    <option value="audit">Audit Dashboard</option>
+                                    <option value="process">Process Dashboard</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Dashboard Widgets</label>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" checked> Documents Widget</label>
+                                    <label><input type="checkbox" checked> NCRs Widget</label>
+                                    <label><input type="checkbox" checked> Audits Widget</label>
+                                    <label><input type="checkbox" checked> Training Widget</label>
+                                    <label><input type="checkbox" checked> Quality Metrics Chart</label>
+                                    <label><input type="checkbox" checked> NCRs by Department Chart</label>
+                                    <label><input type="checkbox" checked> Recent Activities</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="tab-content" id="notifications">
+                    <form class="settings-form">
+                        <div class="form-section">
+                            <h3>Email Notifications</h3>
+                            <div class="form-group">
+                                <label>Send email notifications for:</label>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" checked> Document approval requests</label>
+                                    <label><input type="checkbox" checked> New NCR assignments</label>
+                                    <label><input type="checkbox" checked> Upcoming audits</label>
+                                    <label><input type="checkbox" checked> Training reminders</label>
+                                    <label><input type="checkbox" checked> Document expiration</label>
+                                    <label><input type="checkbox" checked> Process changes</label>
+                                    <label><input type="checkbox"> System updates</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-section">
+                            <h3>In-App Notifications</h3>
+                            <div class="form-group">
+                                <label>Show in-app notifications for:</label>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" checked> Document approval requests</label>
+                                    <label><input type="checkbox" checked> New NCR assignments</label>
+                                    <label><input type="checkbox" checked> Upcoming audits</label>
+                                    <label><input type="checkbox" checked> Training reminders</label>
+                                    <label><input type="checkbox" checked> Document expiration</label>
+                                    <label><input type="checkbox" checked> Process changes</label>
+                                    <label><input type="checkbox" checked> System updates</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="notification-duration">Notification display duration</label>
+                                <select id="notification-duration">
+                                    <option value="5">5 seconds</option>
+                                    <option value="10" selected>10 seconds</option>
+                                    <option value="15">15 seconds</option>
+                                    <option value="30">30 seconds</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="tab-content" id="security">
+                    <!-- Security settings will go here -->
+                </div>
+                
+                <div class="tab-content" id="customization">
+                    <!-- Customization settings will go here -->
+                </div>
+                
+                <div class="tab-content" id="system">
+                    <!-- System settings will go here (admin only) -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Quality Management System. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/settings.js"></script>
+    <script src="../js/auth.js"></script>
+</body>
+</html> 

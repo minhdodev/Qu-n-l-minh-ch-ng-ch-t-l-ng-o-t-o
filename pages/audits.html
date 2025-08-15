@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quality Management System - Audits</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>QMS</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="documents.html">Documents</a></li>
+                <li><a href="processes.html">Processes</a></li>
+                <li><a href="audits.html" class="active">Audits</a></li>
+                <li><a href="training.html">Training</a></li>
+                <li><a href="reports.html">Reports</a></li>
+            </ul>
+        </nav>
+        <div class="user-profile">
+            <span class="username">Admin User</span>
+            <div class="dropdown">
+                <img src="../images/avatar.png" alt="User Avatar" class="avatar">
+                <div class="dropdown-content">
+                    <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                    <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+        <button class="mobile-menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="dashboard.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="documents.html"><i class="fas fa-file-alt"></i> Document Control</a></li>
+                <li><a href="processes.html"><i class="fas fa-tasks"></i> Process Management</a></li>
+                <li><a href="audits.html" class="active"><i class="fas fa-clipboard-check"></i> Audit Management</a></li>
+                <li><a href="nonconformance.html"><i class="fas fa-exclamation-triangle"></i> Nonconformance</a></li>
+                <li><a href="metrics.html"><i class="fas fa-chart-line"></i> Performance Metrics</a></li>
+                <li><a href="training.html"><i class="fas fa-book"></i> Training Records</a></li>
+                <li class="admin-only"><a href="user-management.html"><i class="fas fa-users"></i> User Management</a></li>
+                <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <section class="audits">
+                <div class="section-header">
+                    <h2>Audit Management</h2>
+                    <button id="schedule-audit-btn" class="btn btn-primary"><i class="fas fa-plus"></i> Schedule Audit</button>
+                </div>
+                
+                <div class="audit-dashboard">
+                    <div class="quick-stats">
+                        <div class="stat-card">
+                            <h3>Planned Audits</h3>
+                            <div class="stat-value">12</div>
+                            <div class="stat-desc">For this year</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Completed</h3>
+                            <div class="stat-value">5</div>
+                            <div class="stat-desc">42% of planned</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Upcoming</h3>
+                            <div class="stat-value">2</div>
+                            <div class="stat-desc">Within 30 days</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Open Findings</h3>
+                            <div class="stat-value">7</div>
+                            <div class="stat-desc">3 overdue</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="filters">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="audit-search" placeholder="Search audits...">
+                    </div>
+                    <div class="filter-group">
+                        <label for="type-filter">Type:</label>
+                        <select id="type-filter">
+                            <option value="all">All Types</option>
+                            <option value="internal">Internal</option>
+                            <option value="external">External</option>
+                            <option value="supplier">Supplier</option>
+                            <option value="customer">Customer</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="status-filter">Status:</label>
+                        <select id="status-filter">
+                            <option value="all">All Status</option>
+                            <option value="scheduled">Scheduled</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="completed">Completed</option>
+                            <option value="canceled">Canceled</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="date-filter">Date Range:</label>
+                        <select id="date-filter">
+                            <option value="all">All Dates</option>
+                            <option value="current-month">Current Month</option>
+                            <option value="next-month">Next Month</option>
+                            <option value="current-quarter">Current Quarter</option>
+                            <option value="custom">Custom Range</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="audits-list">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Audit ID</th>
+                                <th>Title</th>
+                                <th>Type</th>
+                                <th>Scope</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Lead Auditor</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>INT-2025-001</td>
+                                <td>Internal Quality Audit - Q1</td>
+                                <td>Internal</td>
+                                <td>Production & QC</td>
+                                <td>2025-01-15</td>
+                                <td>2025-01-17</td>
+                                <td>John Doe</td>
+                                <td><span class="status complete">Completed</span></td>
+                                <td class="actions">
+                                    <button class="btn-icon view-audit" title="View Audit"><i class="fas fa-eye"></i></button>
+                                    <button class="btn-icon edit-audit" title="Edit Audit"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-icon download-report" title="Download Report"><i class="fas fa-download"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>INT-2025-002</td>
+                                <td>Internal Process Audit</td>
+                                <td>Internal</td>
+                                <td>All Processes</td>
+                                <td>2025-02-10</td>
+                                <td>2025-02-14</td>
+                                <td>Jane Smith</td>
+                                <td><span class="status complete">Completed</span></td>
+                                <td class="actions">
+                                    <button class="btn-icon view-audit" title="View Audit"><i class="fas fa-eye"></i></button>
+                                    <button class="btn-icon edit-audit" title="Edit Audit"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-icon download-report" title="Download Report"><i class="fas fa-download"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>EXT-2025-001</td>
+                                <td>ISO 9001:2025 Surveillance Audit</td>
+                                <td>External</td>
+                                <td>QMS</td>
+                                <td>2025-03-05</td>
+                                <td>2025-03-07</td>
+                                <td>External Auditor</td>
+                                <td><span class="status complete">Completed</span></td>
+                                <td class="actions">
+                                    <button class="btn-icon view-audit" title="View Audit"><i class="fas fa-eye"></i></button>
+                                    <button class="btn-icon edit-audit" title="Edit Audit"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-icon download-report" title="Download Report"><i class="fas fa-download"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>INT-2025-003</td>
+                                <td>Internal Quality Audit - Q2</td>
+                                <td>Internal</td>
+                                <td>Production & QC</td>
+                                <td>2025-04-10</td>
+                                <td>2025-04-12</td>
+                                <td>Robert Johnson</td>
+                                <td><span class="status in-progress">In Progress</span></td>
+                                <td class="actions">
+                                    <button class="btn-icon view-audit" title="View Audit"><i class="fas fa-eye"></i></button>
+                                    <button class="btn-icon edit-audit" title="Edit Audit"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-icon download-report" title="Download Report"><i class="fas fa-download"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>SUP-2025-001</td>
+                                <td>Supplier Audit - ABC Manufacturing</td>
+                                <td>Supplier</td>
+                                <td>Quality System</td>
+                                <td>2025-04-20</td>
+                                <td>2025-04-21</td>
+                                <td>Lisa Wilson</td>
+                                <td><span class="status pending">Scheduled</span></td>
+                                <td class="actions">
+                                    <button class="btn-icon view-audit" title="View Audit"><i class="fas fa-eye"></i></button>
+                                    <button class="btn-icon edit-audit" title="Edit Audit"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-icon cancel-audit" title="Cancel Audit"><i class="fas fa-times"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>INT-2025-004</td>
+                                <td>Health & Safety Audit</td>
+                                <td>Internal</td>
+                                <td>All Departments</td>
+                                <td>2025-05-05</td>
+                                <td>2025-05-06</td>
+                                <td>Michael Brown</td>
+                                <td><span class="status pending">Scheduled</span></td>
+                                <td class="actions">
+                                    <button class="btn-icon view-audit" title="View Audit"><i class="fas fa-eye"></i></button>
+                                    <button class="btn-icon edit-audit" title="Edit Audit"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-icon cancel-audit" title="Cancel Audit"><i class="fas fa-times"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="pagination">
+                    <button class="btn-icon" disabled><i class="fas fa-chevron-left"></i></button>
+                    <span class="page-number active">1</span>
+                    <span class="page-number">2</span>
+                    <button class="btn-icon"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </section>
+        </main>
+
+        <aside class="notifications-panel">
+            <h3>Notifications <span class="notification-count">5</span></h3>
+            <ul class="notifications-list">
+                <li class="notification unread">
+                    <div class="notification-icon"><i class="fas fa-file-alt"></i></div>
+                    <div class="notification-content">
+                        <p>Document QP-001 requires your approval</p>
+                        <span class="notification-time">1 hour ago</span>
+                    </div>
+                </li>
+                <li class="notification unread">
+                    <div class="notification-icon"><i class="fas fa-exclamation-circle"></i></div>
+                    <div class="notification-content">
+                        <p>NCR #2025-032 has been assigned to you</p>
+                        <span class="notification-time">3 hours ago</span>
+                    </div>
+                </li>
+                <li class="notification unread">
+                    <div class="notification-icon"><i class="fas fa-calendar-check"></i></div>
+                    <div class="notification-content">
+                        <p>Audit scheduled for April 5, 2025</p>
+                        <span class="notification-time">Yesterday</span>
+                    </div>
+                </li>
+                <li class="notification">
+                    <div class="notification-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="notification-content">
+                        <p>Training "ISO 9001:2025 Updates" due in 5 days</p>
+                        <span class="notification-time">2 days ago</span>
+                    </div>
+                </li>
+                <li class="notification">
+                    <div class="notification-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="notification-content">
+                        <p>Monthly quality metrics report available</p>
+                        <span class="notification-time">3 days ago</span>
+                    </div>
+                </li>
+            </ul>
+            <a href="#" class="view-all">View All Notifications</a>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Quality Management System. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+</body>
+</html> 

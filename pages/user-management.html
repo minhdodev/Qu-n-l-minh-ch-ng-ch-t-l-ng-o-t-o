@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quality Management System - User Management</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>QMS</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="documents.html">Documents</a></li>
+                <li><a href="processes.html">Processes</a></li>
+                <li><a href="audits.html">Audits</a></li>
+                <li><a href="training.html">Training</a></li>
+                <li><a href="reports.html">Reports</a></li>
+            </ul>
+        </nav>
+        <div class="user-profile">
+            <span class="username">Admin User</span>
+            <div class="dropdown">
+                <img src="../images/avatar.png" alt="User Avatar" class="avatar">
+                <div class="dropdown-content">
+                    <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                    <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+        <button class="mobile-menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="dashboard.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="documents.html"><i class="fas fa-file-alt"></i> Document Control</a></li>
+                <li><a href="processes.html"><i class="fas fa-tasks"></i> Process Management</a></li>
+                <li><a href="audits.html"><i class="fas fa-clipboard-check"></i> Audit Management</a></li>
+                <li><a href="nonconformance.html"><i class="fas fa-exclamation-triangle"></i> Nonconformance</a></li>
+                <li><a href="metrics.html"><i class="fas fa-chart-line"></i> Performance Metrics</a></li>
+                <li><a href="training.html"><i class="fas fa-book"></i> Training Records</a></li>
+                <li class="admin-only"><a href="user-management.html" class="active"><i class="fas fa-users"></i> User Management</a></li>
+                <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <section class="user-management">
+                <div class="section-header">
+                    <h2>User Management</h2>
+                    <button id="add-user-btn" class="btn btn-primary"><i class="fas fa-user-plus"></i> Add New User</button>
+                </div>
+                
+                <div class="filters">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="user-search" placeholder="Search users...">
+                    </div>
+                    <div class="filter-group">
+                        <label for="role-filter">Role:</label>
+                        <select id="role-filter">
+                            <option value="all">All Roles</option>
+                            <option value="admin">Admin</option>
+                            <option value="manager">Manager</option>
+                            <option value="user">User</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="department-filter">Department:</label>
+                        <select id="department-filter">
+                            <option value="all">All Departments</option>
+                            <option value="quality">Quality</option>
+                            <option value="production">Production</option>
+                            <option value="engineering">Engineering</option>
+                            <option value="management">Management</option>
+                            <option value="hr">Human Resources</option>
+                            <option value="it">IT</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="status-filter">Status:</label>
+                        <select id="status-filter">
+                            <option value="all">All Status</option>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="users-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Department</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                                <th>Last Login</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>John Doe</td>
+                                <td>john.doe@example.com</td>
+                                <td>Quality</td>
+                                <td>Admin</td>
+                                <td><span class="badge active">Active</span></td>
+                                <td>2025-03-26 09:45</td>
+                                <td class="actions">
+                                    <button class="btn-icon edit-user" title="Edit User"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-icon reset-password" title="Reset Password"><i class="fas fa-key"></i></button>
+                                    <button class="btn-icon delete-user" title="Delete User"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Jane Smith</td>
+                                <td>jane.smith@example.com</td>
+                                <td>Production</td>
+                                <td>Manager</td>
+                                <td><span class="badge active">Active</span></td>
+                                <td>2025-03-25 14:30</td>
+                                <td class="actions">
+                                    <button class="btn-icon edit-user" title="Edit User"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-icon reset-password" title="Reset Password"><i class="fas fa-key"></i></button>
+                                    <button class="btn-icon delete-user" title="Delete User"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Robert Johnson</td>
+                                <td>robert.johnson@example.com</td>
+                                <td>Engineering</td>
+                                <td>User</td>
+                                <td><span class="badge active">Active</span></td>
+                                <td>2025-03-26 11:20</td>
+                                <td class="actions">
+                                    <button class="btn-icon edit-user" title="Edit User"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-icon reset-password" title="Reset Password"><i class="fas fa-key"></i></button>
+                                    <button class="btn-icon delete-user" title="Delete User"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Lisa Wilson</td>
+                                <td>lisa.wilson@example.com</td>
+                                <td>Quality</td>
+                                <td>User</td>
+                                <td><span class="badge active">Active</span></td>
+                                <td>2025-03-24 09:15</td>
+                                <td class="actions">
+                                    <button class="btn-icon edit-user" title="Edit User"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-icon reset-password" title="Reset Password"><i class="fas fa-key"></i></button>
+                                    <button class="btn-icon delete-user" title="Delete User"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Michael Brown</td>
+                                <td>michael.brown@example.com</td>
+                                <td>Engineering</td>
+                                <td>Manager</td>
+                                <td><span class="badge inactive">Inactive</span></td>
+                                <td>2025-03-20 16:45</td>
+                                <td class="actions">
+                                    <button class="btn-icon edit-user" title="Edit User"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-icon reset-password" title="Reset Password"><i class="fas fa-key"></i></button>
+                                    <button class="btn-icon delete-user" title="Delete User"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="pagination">
+                    <button class="btn-icon" disabled><i class="fas fa-chevron-left"></i></button>
+                    <span class="page-number active">1</span>
+                    <span class="page-number">2</span>
+                    <span class="page-number">3</span>
+                    <button class="btn-icon"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- User Modal -->
+    <div class="modal" id="user-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New User</h3>
+                <button class="close-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="user-form">
+                    <div class="form-group">
+                        <label for="user-name">Full Name</label>
+                        <input type="text" id="user-name" name="user-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-email">Email</label>
+                        <input type="email" id="user-email" name="user-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-department">Department</label>
+                        <select id="user-department" name="user-department" required>
+                            <option value="" disabled selected>Select department</option>
+                            <option value="quality">Quality</option>
+                            <option value="production">Production</option>
+                            <option value="engineering">Engineering</option>
+                            <option value="management">Management</option>
+                            <option value="hr">Human Resources</option>
+                            <option value="it">IT</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-role">Role</label>
+                        <select id="user-role" name="user-role" required>
+                            <option value="" disabled selected>Select role</option>
+                            <option value="admin">Admin</option>
+                            <option value="manager">Manager</option>
+                            <option value="user">User</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-status">Status</label>
+                        <select id="user-status" name="user-status" required>
+                            <option value="active" selected>Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancel-user">Cancel</button>
+                <button class="btn btn-primary" id="save-user">Save User</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Quality Management System. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/users.js"></script>
+    <script src="../js/auth.js"></script>
+</body>
+</html> 

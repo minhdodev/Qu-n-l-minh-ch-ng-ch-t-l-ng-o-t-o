@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quality Management System - Dashboard</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>QMS</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="documents.html">Documents</a></li>
+                <li><a href="processes.html">Processes</a></li>
+                <li><a href="audits.html">Audits</a></li>
+                <li><a href="training.html">Training</a></li>
+                <li><a href="reports.html">Reports</a></li>
+            </ul>
+        </nav>
+        <div class="user-profile">
+            <span class="username">Admin User</span>
+            <div class="dropdown">
+                <img src="../images/avatar.png" alt="User Avatar" class="avatar">
+                <div class="dropdown-content">
+                    <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                    <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+        <button class="mobile-menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="dashboard.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="documents.html"><i class="fas fa-file-alt"></i> Document Control</a></li>
+                <li><a href="processes.html"><i class="fas fa-tasks"></i> Process Management</a></li>
+                <li><a href="audits.html"><i class="fas fa-clipboard-check"></i> Audit Management</a></li>
+                <li><a href="nonconformance.html"><i class="fas fa-exclamation-triangle"></i> Nonconformance</a></li>
+                <li><a href="metrics.html"><i class="fas fa-chart-line"></i> Performance Metrics</a></li>
+                <li><a href="training.html"><i class="fas fa-book"></i> Training Records</a></li>
+                <li class="admin-only"><a href="user-management.html"><i class="fas fa-users"></i> User Management</a></li>
+                <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <section class="dashboard">
+                <h2>Quality Management Dashboard</h2>
+                
+                <div class="quick-stats">
+                    <div class="stat-card">
+                        <h3>Documents</h3>
+                        <div class="stat-value">254</div>
+                        <div class="stat-desc">28 pending approval</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Open NCRs</h3>
+                        <div class="stat-value">17</div>
+                        <div class="stat-desc">5 high priority</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Audits</h3>
+                        <div class="stat-value">8</div>
+                        <div class="stat-desc">2 scheduled this month</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Training Compliance</h3>
+                        <div class="stat-value">92%</div>
+                        <div class="stat-desc">12 due this week</div>
+                    </div>
+                </div>
+
+                <div class="charts-container">
+                    <div class="chart">
+                        <h3>Quality Metrics Trend</h3>
+                        <div class="chart-placeholder" id="metrics-chart">
+                            <!-- Chart will be rendered by JS here -->
+                        </div>
+                    </div>
+                    <div class="chart">
+                        <h3>NCRs by Department</h3>
+                        <div class="chart-placeholder" id="ncr-chart">
+                            <!-- Chart will be rendered by JS here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recent-activities">
+                    <h3>Recent Activities</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>User</th>
+                                <th>Activity</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2025-03-26</td>
+                                <td>John Doe</td>
+                                <td>Updated Quality Manual</td>
+                                <td><span class="status complete">Complete</span></td>
+                            </tr>
+                            <tr>
+                                <td>2025-03-25</td>
+                                <td>Jane Smith</td>
+                                <td>Created NCR #2025-032</td>
+                                <td><span class="status in-progress">In Progress</span></td>
+                            </tr>
+                            <tr>
+                                <td>2025-03-25</td>
+                                <td>Robert Johnson</td>
+                                <td>Scheduled Internal Audit</td>
+                                <td><span class="status pending">Pending</span></td>
+                            </tr>
+                            <tr>
+                                <td>2025-03-24</td>
+                                <td>Lisa Wilson</td>
+                                <td>Completed Training Module</td>
+                                <td><span class="status complete">Complete</span></td>
+                            </tr>
+                            <tr>
+                                <td>2025-03-24</td>
+                                <td>Michael Brown</td>
+                                <td>Updated Process Flow</td>
+                                <td><span class="status in-review">In Review</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <aside class="notifications-panel">
+            <h3>Notifications <span class="notification-count">5</span></h3>
+            <ul class="notifications-list">
+                <li class="notification unread">
+                    <div class="notification-icon"><i class="fas fa-file-alt"></i></div>
+                    <div class="notification-content">
+                        <p>Document QP-001 requires your approval</p>
+                        <span class="notification-time">1 hour ago</span>
+                    </div>
+                </li>
+                <li class="notification unread">
+                    <div class="notification-icon"><i class="fas fa-exclamation-circle"></i></div>
+                    <div class="notification-content">
+                        <p>NCR #2025-032 has been assigned to you</p>
+                        <span class="notification-time">3 hours ago</span>
+                    </div>
+                </li>
+                <li class="notification unread">
+                    <div class="notification-icon"><i class="fas fa-calendar-check"></i></div>
+                    <div class="notification-content">
+                        <p>Audit scheduled for April 5, 2025</p>
+                        <span class="notification-time">Yesterday</span>
+                    </div>
+                </li>
+                <li class="notification">
+                    <div class="notification-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="notification-content">
+                        <p>Training "ISO 9001:2025 Updates" due in 5 days</p>
+                        <span class="notification-time">2 days ago</span>
+                    </div>
+                </li>
+                <li class="notification">
+                    <div class="notification-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="notification-content">
+                        <p>Monthly quality metrics report available</p>
+                        <span class="notification-time">3 days ago</span>
+                    </div>
+                </li>
+            </ul>
+            <a href="#" class="view-all">View All Notifications</a>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Quality Management System. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/dashboard.js"></script>
+    <script src="../js/auth.js"></script>
+</body>
+</html> 

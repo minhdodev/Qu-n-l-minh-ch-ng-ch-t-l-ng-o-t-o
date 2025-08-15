@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quality Management System - Processes</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>QMS</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="documents.html">Documents</a></li>
+                <li><a href="processes.html" class="active">Processes</a></li>
+                <li><a href="audits.html">Audits</a></li>
+                <li><a href="training.html">Training</a></li>
+                <li><a href="reports.html">Reports</a></li>
+            </ul>
+        </nav>
+        <div class="user-profile">
+            <span class="username">Admin User</span>
+            <div class="dropdown">
+                <img src="../images/avatar.png" alt="User Avatar" class="avatar">
+                <div class="dropdown-content">
+                    <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                    <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+        <button class="mobile-menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="dashboard.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="documents.html"><i class="fas fa-file-alt"></i> Document Control</a></li>
+                <li><a href="processes.html" class="active"><i class="fas fa-tasks"></i> Process Management</a></li>
+                <li><a href="audits.html"><i class="fas fa-clipboard-check"></i> Audit Management</a></li>
+                <li><a href="nonconformance.html"><i class="fas fa-exclamation-triangle"></i> Nonconformance</a></li>
+                <li><a href="metrics.html"><i class="fas fa-chart-line"></i> Performance Metrics</a></li>
+                <li><a href="training.html"><i class="fas fa-book"></i> Training Records</a></li>
+                <li class="admin-only"><a href="user-management.html"><i class="fas fa-users"></i> User Management</a></li>
+                <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <section class="processes">
+                <div class="section-header">
+                    <h2>Process Management</h2>
+                    <button id="add-process-btn" class="btn btn-primary"><i class="fas fa-plus"></i> Add New Process</button>
+                </div>
+                
+                <div class="filters">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="process-search" placeholder="Search processes...">
+                    </div>
+                    <div class="filter-group">
+                        <label for="category-filter">Category:</label>
+                        <select id="category-filter">
+                            <option value="all">All Categories</option>
+                            <option value="core">Core Processes</option>
+                            <option value="support">Support Processes</option>
+                            <option value="management">Management Processes</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="owner-filter">Process Owner:</label>
+                        <select id="owner-filter">
+                            <option value="all">All Owners</option>
+                            <option value="quality">Quality Manager</option>
+                            <option value="production">Production Manager</option>
+                            <option value="engineering">Engineering Manager</option>
+                            <option value="hr">HR Manager</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="process-cards">
+                    <div class="process-card">
+                        <div class="process-header">
+                            <h3 class="process-title">Manufacturing Process</h3>
+                            <span class="process-badge badge-core">Core</span>
+                        </div>
+                        <div class="process-body">
+                            <div class="process-description">
+                                Main production process for converting raw materials into finished products.
+                            </div>
+                            <div class="process-info">
+                                <div class="process-info-item">
+                                    <i class="fas fa-user"></i> Production Manager
+                                </div>
+                                <div class="process-info-item">
+                                    <i class="fas fa-history"></i> Last Review: 2025-02-15
+                                </div>
+                                <div class="process-info-item">
+                                    <i class="fas fa-calendar"></i> Next Review: 2025-08-15
+                                </div>
+                            </div>
+                            <div class="process-kpis">
+                                <div class="kpi-title">Key Performance Indicators</div>
+                                <ul class="kpi-list">
+                                    <li class="kpi-item">
+                                        <span class="kpi-name">Production Efficiency:</span>
+                                        <span class="kpi-value">95%</span>
+                                    </li>
+                                    <li class="kpi-item">
+                                        <span class="kpi-name">Defect Rate:</span>
+                                        <span class="kpi-value">0.5%</span>
+                                    </li>
+                                    <li class="kpi-item">
+                                        <span class="kpi-name">On-time Delivery:</span>
+                                        <span class="kpi-value">98%</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="process-footer">
+                            <div class="process-owner">
+                                <img src="../images/avatar.png" alt="Owner Avatar">
+                                <span>Production Manager</span>
+                            </div>
+                            <div class="process-actions">
+                                <button class="btn btn-sm btn-secondary"><i class="fas fa-eye"></i> Details</button>
+                                <button class="btn btn-sm btn-secondary"><i class="fas fa-chart-line"></i> Metrics</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="process-card">
+                        <div class="process-header">
+                            <h3 class="process-title">Quality Control Process</h3>
+                            <span class="process-badge badge-core">Core</span>
+                        </div>
+                        <div class="process-body">
+                            <div class="process-description">
+                                Process for inspecting and ensuring product quality meets specifications.
+                            </div>
+                            <div class="process-info">
+                                <div class="process-info-item">
+                                    <i class="fas fa-user"></i> Quality Manager
+                                </div>
+                                <div class="process-info-item">
+                                    <i class="fas fa-history"></i> Last Review: 2025-03-05
+                                </div>
+                                <div class="process-info-item">
+                                    <i class="fas fa-calendar"></i> Next Review: 2025-09-05
+                                </div>
+                            </div>
+                            <div class="process-kpis">
+                                <div class="kpi-title">Key Performance Indicators</div>
+                                <ul class="kpi-list">
+                                    <li class="kpi-item">
+                                        <span class="kpi-name">Inspection Coverage:</span>
+                                        <span class="kpi-value">100%</span>
+                                    </li>
+                                    <li class="kpi-item">
+                                        <span class="kpi-name">Escaped Defects:</span>
+                                        <span class="kpi-value">0.1%</span>
+                                    </li>
+                                    <li class="kpi-item">
+                                        <span class="kpi-name">Inspection Time:</span>
+                                        <span class="kpi-value">25 min/batch</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="process-footer">
+                            <div class="process-owner">
+                                <img src="../images/avatar.png" alt="Owner Avatar">
+                                <span>Quality Manager</span>
+                            </div>
+                            <div class="process-actions">
+                                <button class="btn btn-sm btn-secondary"><i class="fas fa-eye"></i> Details</button>
+                                <button class="btn btn-sm btn-secondary"><i class="fas fa-chart-line"></i> Metrics</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="process-card">
+                        <div class="process-header">
+                            <h3 class="process-title">Document Control Process</h3>
+                            <span class="process-badge badge-support">Support</span>
+                        </div>
+                        <div class="process-body">
+                            <div class="process-description">
+                                Process for managing document creation, review, approval, and distribution.
+                            </div>
+                            <div class="process-info">
+                                <div class="process-info-item">
+                                    <i class="fas fa-user"></i> Quality Manager
+                                </div>
+                                <div class="process-info-item">
+                                    <i class="fas fa-history"></i> Last Review: 2025-01-20
+                                </div>
+                                <div class="process-info-item">
+                                    <i class="fas fa-calendar"></i> Next Review: 2025-07-20
+                                </div>
+                            </div>
+                            <div class="process-kpis">
+                                <div class="kpi-title">Key Performance Indicators</div>
+                                <ul class="kpi-list">
+                                    <li class="kpi-item">
+                                        <span class="kpi-name">Document Approval Time:</span>
+                                        <span class="kpi-value">3 days</span>
+                                    </li>
+                                    <li class="kpi-item">
+                                        <span class="kpi-name">Review Compliance:</span>
+                                        <span class="kpi-value">98%</span>
+                                    </li>
+                                    <li class="kpi-item">
+                                        <span class="kpi-name">Accessibility:</span>
+                                        <span class="kpi-value">100%</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="process-footer">
+                            <div class="process-owner">
+                                <img src="../images/avatar.png" alt="Owner Avatar">
+                                <span>Quality Manager</span>
+                            </div>
+                            <div class="process-actions">
+                                <button class="btn btn-sm btn-secondary"><i class="fas fa-eye"></i> Details</button>
+                                <button class="btn btn-sm btn-secondary"><i class="fas fa-chart-line"></i> Metrics</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="process-card">
+                        <div class="process-header">
+                            <h3 class="process-title">Training Management Process</h3>
+                            <span class="process-badge badge-support">Support</span>
+                        </div>
+                        <div class="process-body">
+                            <div class="process-description">
+                                Process for identifying training needs, conducting training, and tracking competency.
+                            </div>
+                            <div class="process-info">
+                                <div class="process-info-item">
+                                    <i class="fas fa-user"></i> HR Manager
+                                </div>
+                                <div class="process-info-item">
+                                    <i class="fas fa-history"></i> Last Review: 2025-02-28
+                                </div>
+                                <div class="process-info-item">
+                                    <i class="fas fa-calendar"></i> Next Review: 2025-08-28
+                                </div>
+                            </div>
+                            <div class="process-kpis">
+                                <div class="kpi-title">Key Performance Indicators</div>
+                                <ul class="kpi-list">
+                                    <li class="kpi-item">
+                                        <span class="kpi-name">Completion Rate:</span>
+                                        <span class="kpi-value">95%</span>
+                                    </li>
+                                    <li class="kpi-item">
+                                        <span class="kpi-name">Effectiveness:</span>
+                                        <span class="kpi-value">4.2/5</span>
+                                    </li>
+                                    <li class="kpi-item">
+                                        <span class="kpi-name">Competency Achievement:</span>
+                                        <span class="kpi-value">92%</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="process-footer">
+                            <div class="process-owner">
+                                <img src="../images/avatar.png" alt="Owner Avatar">
+                                <span>HR Manager</span>
+                            </div>
+                            <div class="process-actions">
+                                <button class="btn btn-sm btn-secondary"><i class="fas fa-eye"></i> Details</button>
+                                <button class="btn btn-sm btn-secondary"><i class="fas fa-chart-line"></i> Metrics</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="process-card">
+                        <div class="process-header">
+                            <h3 class="process-title">Management Review Process</h3>
+                            <span class="process-badge badge-management">Management</span>
+                        </div>
+                        <div class="process-body">
+                            <div class="process-description">
+                                Process for regularly reviewing the quality management system performance.
+                            </div>
+                            <div class="process-info">
+                                <div class="process-info-item">
+                                    <i class="fas fa-user"></i> General Manager
+                                </div>
+                                <div class="process-info-item">
+                                    <i class="fas fa-history"></i> Last Review: 2025-03-15
+                                </div>
+                                <div class="process-info-item">
+                                    <i class="fas fa-calendar"></i> Next Review: 2025-09-15
+                                </div>
+                            </div>
+                            <div class="process-kpis">
+                                <div class="kpi-title">Key Performance Indicators</div>
+                                <ul class="kpi-list">
+                                    <li class="kpi-item">
+                                        <span class="kpi-name">Review Frequency:</span>
+                                        <span class="kpi-value">Quarterly</span>
+                                    </li>
+                                    <li class="kpi-item">
+                                        <span class="kpi-name">Action Completion:</span>
+                                        <span class="kpi-value">87%</span>
+                                    </li>
+                                    <li class="kpi-item">
+                                        <span class="kpi-name">Decision Effectiveness:</span>
+                                        <span class="kpi-value">90%</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="process-footer">
+                            <div class="process-owner">
+                                <img src="../images/avatar.png" alt="Owner Avatar">
+                                <span>General Manager</span>
+                            </div>
+                            <div class="process-actions">
+                                <button class="btn btn-sm btn-secondary"><i class="fas fa-eye"></i> Details</button>
+                                <button class="btn btn-sm btn-secondary"><i class="fas fa-chart-line"></i> Metrics</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="process-card">
+                        <div class="process-header">
+                            <h3 class="process-title">Supplier Management Process</h3>
+                            <span class="process-badge badge-support">Support</span>
+                        </div>
+                        <div class="process-body">
+                            <div class="process-description">
+                                Process for evaluating, selecting, and monitoring supplier performance.
+                            </div>
+                            <div class="process-info">
+                                <div class="process-info-item">
+                                    <i class="fas fa-user"></i> Purchasing Manager
+                                </div>
+                                <div class="process-info-item">
+                                    <i class="fas fa-history"></i> Last Review: 2025-02-10
+                                </div>
+                                <div class="process-info-item">
+                                    <i class="fas fa-calendar"></i> Next Review: 2025-08-10
+                                </div>
+                            </div>
+                            <div class="process-kpis">
+                                <div class="kpi-title">Key Performance Indicators</div>
+                                <ul class="kpi-list">
+                                    <li class="kpi-item">
+                                        <span class="kpi-name">Quality Rating:</span>
+                                        <span class="kpi-value">94%</span>
+                                    </li>
+                                    <li class="kpi-item">
+                                        <span class="kpi-name">On-time Delivery:</span>
+                                        <span class="kpi-value">96%</span>
+                                    </li>
+                                    <li class="kpi-item">
+                                        <span class="kpi-name">Audit Compliance:</span>
+                                        <span class="kpi-value">100%</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="process-footer">
+                            <div class="process-owner">
+                                <img src="../images/avatar.png" alt="Owner Avatar">
+                                <span>Purchasing Manager</span>
+                            </div>
+                            <div class="process-actions">
+                                <button class="btn btn-sm btn-secondary"><i class="fas fa-eye"></i> Details</button>
+                                <button class="btn btn-sm btn-secondary"><i class="fas fa-chart-line"></i> Metrics</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pagination">
+                    <button class="btn-icon" disabled><i class="fas fa-chevron-left"></i></button>
+                    <span class="page-number active">1</span>
+                    <span class="page-number">2</span>
+                    <button class="btn-icon"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </section>
+        </main>
+
+        <aside class="notifications-panel">
+            <h3>Notifications <span class="notification-count">5</span></h3>
+            <ul class="notifications-list">
+                <li class="notification unread">
+                    <div class="notification-icon"><i class="fas fa-file-alt"></i></div>
+                    <div class="notification-content">
+                        <p>Document QP-001 requires your approval</p>
+                        <span class="notification-time">1 hour ago</span>
+                    </div>
+                </li>
+                <li class="notification unread">
+                    <div class="notification-icon"><i class="fas fa-exclamation-circle"></i></div>
+                    <div class="notification-content">
+                        <p>NCR #2025-032 has been assigned to you</p>
+                        <span class="notification-time">3 hours ago</span>
+                    </div>
+                </li>
+                <li class="notification unread">
+                    <div class="notification-icon"><i class="fas fa-calendar-check"></i></div>
+                    <div class="notification-content">
+                        <p>Audit scheduled for April 5, 2025</p>
+                        <span class="notification-time">Yesterday</span>
+                    </div>
+                </li>
+                <li class="notification">
+                    <div class="notification-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="notification-content">
+                        <p>Training "ISO 9001:2025 Updates" due in 5 days</p>
+                        <span class="notification-time">2 days ago</span>
+                    </div>
+                </li>
+                <li class="notification">
+                    <div class="notification-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="notification-content">
+                        <p>Monthly quality metrics report available</p>
+                        <span class="notification-time">3 days ago</span>
+                    </div>
+                </li>
+            </ul>
+            <a href="#" class="view-all">View All Notifications</a>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Quality Management System. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+</body>
+</html> 

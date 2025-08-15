@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quality Management System - Reports</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/reports.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>QMS</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="documents.html">Documents</a></li>
+                <li><a href="processes.html">Processes</a></li>
+                <li><a href="audits.html">Audits</a></li>
+                <li><a href="training.html">Training</a></li>
+                <li><a href="reports.html" class="active">Reports</a></li>
+            </ul>
+        </nav>
+        <div class="user-profile">
+            <span class="username">Admin User</span>
+            <div class="dropdown">
+                <img src="../images/avatar.png" alt="User Avatar" class="avatar">
+                <div class="dropdown-content">
+                    <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                    <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+        <button class="mobile-menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="dashboard.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="documents.html"><i class="fas fa-file-alt"></i> Document Control</a></li>
+                <li><a href="processes.html"><i class="fas fa-tasks"></i> Process Management</a></li>
+                <li><a href="audits.html"><i class="fas fa-clipboard-check"></i> Audit Management</a></li>
+                <li><a href="nonconformance.html"><i class="fas fa-exclamation-triangle"></i> Nonconformance</a></li>
+                <li><a href="metrics.html"><i class="fas fa-chart-line"></i> Performance Metrics</a></li>
+                <li><a href="training.html"><i class="fas fa-book"></i> Training Records</a></li>
+                <li class="admin-only"><a href="user-management.html"><i class="fas fa-users"></i> User Management</a></li>
+                <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <section class="reports">
+                <div class="section-header">
+                    <h2>Reports</h2>
+                    <div class="button-group">
+                        <button id="export-report-btn" class="btn btn-secondary"><i class="fas fa-file-export"></i> Export</button>
+                        <button id="schedule-report-btn" class="btn btn-primary"><i class="fas fa-calendar-plus"></i> Schedule Report</button>
+                    </div>
+                </div>
+                
+                <div class="reports-tabs">
+                    <div class="tab active" data-tab="standard-reports">Standard Reports</div>
+                    <div class="tab" data-tab="custom-reports">Custom Reports</div>
+                    <div class="tab" data-tab="scheduled-reports">Scheduled Reports</div>
+                    <div class="tab" data-tab="analytics">Analytics Dashboard</div>
+                </div>
+                
+                <div class="tab-content active" id="standard-reports">
+                    <div class="report-category">
+                        <h3>Quality Reports</h3>
+                        <div class="report-cards">
+                            <div class="report-card">
+                                <div class="report-icon">
+                                    <i class="fas fa-chart-pie"></i>
+                                </div>
+                                <div class="report-info">
+                                    <h4>NCR Analysis</h4>
+                                    <p>Analysis of nonconformance reports by category, department, and status.</p>
+                                </div>
+                                <div class="report-actions">
+                                    <button class="btn btn-sm btn-primary">Generate</button>
+                                </div>
+                            </div>
+                            <div class="report-card">
+                                <div class="report-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="report-info">
+                                    <h4>Quality Metrics Trend</h4>
+                                    <p>Trend analysis of key quality performance indicators over time.</p>
+                                </div>
+                                <div class="report-actions">
+                                    <button class="btn btn-sm btn-primary">Generate</button>
+                                </div>
+                            </div>
+                            <div class="report-card">
+                                <div class="report-icon">
+                                    <i class="fas fa-tasks"></i>
+                                </div>
+                                <div class="report-info">
+                                    <h4>CAPA Status</h4>
+                                    <p>Status of corrective and preventive actions, including overdue items.</p>
+                                </div>
+                                <div class="report-actions">
+                                    <button class="btn btn-sm btn-primary">Generate</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="report-category">
+                        <h3>Document Reports</h3>
+                        <div class="report-cards">
+                            <div class="report-card">
+                                <div class="report-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <div class="report-info">
+                                    <h4>Document Status</h4>
+                                    <p>Overview of document status, including pending reviews and approvals.</p>
+                                </div>
+                                <div class="report-actions">
+                                    <button class="btn btn-sm btn-primary">Generate</button>
+                                </div>
+                            </div>
+                            <div class="report-card">
+                                <div class="report-icon">
+                                    <i class="fas fa-history"></i>
+                                </div>
+                                <div class="report-info">
+                                    <h4>Document History</h4>
+                                    <p>History of document changes, revisions, and approvals.</p>
+                                </div>
+                                <div class="report-actions">
+                                    <button class="btn btn-sm btn-primary">Generate</button>
+                                </div>
+                            </div>
+                            <div class="report-card">
+                                <div class="report-icon">
+                                    <i class="fas fa-exclamation-circle"></i>
+                                </div>
+                                <div class="report-info">
+                                    <h4>Document Expiration</h4>
+                                    <p>Documents expiring within the next 90 days.</p>
+                                </div>
+                                <div class="report-actions">
+                                    <button class="btn btn-sm btn-primary">Generate</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="report-category">
+                        <h3>Audit Reports</h3>
+                        <div class="report-cards">
+                            <div class="report-card">
+                                <div class="report-icon">
+                                    <i class="fas fa-clipboard-check"></i>
+                                </div>
+                                <div class="report-info">
+                                    <h4>Audit Summary</h4>
+                                    <p>Summary of audit findings, observations, and recommendations.</p>
+                                </div>
+                                <div class="report-actions">
+                                    <button class="btn btn-sm btn-primary">Generate</button>
+                                </div>
+                            </div>
+                            <div class="report-card">
+                                <div class="report-icon">
+                                    <i class="fas fa-clipboard-list"></i>
+                                </div>
+                                <div class="report-info">
+                                    <h4>Audit Schedule</h4>
+                                    <p>Upcoming audit schedule and completion status.</p>
+                                </div>
+                                <div class="report-actions">
+                                    <button class="btn btn-sm btn-primary">Generate</button>
+                                </div>
+                            </div>
+                            <div class="report-card">
+                                <div class="report-icon">
+                                    <i class="fas fa-chart-bar"></i>
+                                </div>
+                                <div class="report-info">
+                                    <h4>Audit Trends</h4>
+                                    <p>Trend analysis of audit findings and recurrence.</p>
+                                </div>
+                                <div class="report-actions">
+                                    <button class="btn btn-sm btn-primary">Generate</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="report-category">
+                        <h3>Training Reports</h3>
+                        <div class="report-cards">
+                            <div class="report-card">
+                                <div class="report-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div class="report-info">
+                                    <h4>Training Compliance</h4>
+                                    <p>Employee training compliance and certification status.</p>
+                                </div>
+                                <div class="report-actions">
+                                    <button class="btn btn-sm btn-primary">Generate</button>
+                                </div>
+                            </div>
+                            <div class="report-card">
+                                <div class="report-icon">
+                                    <i class="fas fa-user-graduate"></i>
+                                </div>
+                                <div class="report-info">
+                                    <h4>Training Effectiveness</h4>
+                                    <p>Evaluation of training effectiveness based on assessments.</p>
+                                </div>
+                                <div class="report-actions">
+                                    <button class="btn btn-sm btn-primary">Generate</button>
+                                </div>
+                            </div>
+                            <div class="report-card">
+                                <div class="report-icon">
+                                    <i class="fas fa-calendar-check"></i>
+                                </div>
+                                <div class="report-info">
+                                    <h4>Upcoming Training</h4>
+                                    <p>Scheduled training sessions and participant list.</p>
+                                </div>
+                                <div class="report-actions">
+                                    <button class="btn btn-sm btn-primary">Generate</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="custom-reports">
+                    <div class="custom-report-builder">
+                        <div class="builder-header">
+                            <h3>Custom Report Builder</h3>
+                            <p>Build your own custom reports by selecting data sources, filters, and visualizations.</p>
+                        </div>
+                        
+                        <div class="builder-steps">
+                            <div class="step active">
+                                <span class="step-number">1</span>
+                                <span class="step-label">Data Source</span>
+                            </div>
+                            <div class="step">
+                                <span class="step-number">2</span>
+                                <span class="step-label">Select Fields</span>
+                            </div>
+                            <div class="step">
+                                <span class="step-number">3</span>
+                                <span class="step-label">Apply Filters</span>
+                            </div>
+                            <div class="step">
+                                <span class="step-number">4</span>
+                                <span class="step-label">Visualize</span>
+                            </div>
+                            <div class="step">
+                                <span class="step-number">5</span>
+                                <span class="step-label">Save & Share</span>
+                            </div>
+                        </div>
+                        
+                        <div class="builder-content">
+                            <div class="data-source-selection">
+                                <h4>Select Data Source</h4>
+                                <div class="data-sources">
+                                    <div class="data-source-card selected">
+                                        <div class="data-source-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                                        <div class="data-source-info">
+                                            <h5>Nonconformance</h5>
+                                            <p>NCR data including types, departments, and status</p>
+                                        </div>
+                                    </div>
+                                    <div class="data-source-card">
+                                        <div class="data-source-icon"><i class="fas fa-file-alt"></i></div>
+                                        <div class="data-source-info">
+                                            <h5>Documents</h5>
+                                            <p>Document control data including status and revision history</p>
+                                        </div>
+                                    </div>
+                                    <div class="data-source-card">
+                                        <div class="data-source-icon"><i class="fas fa-clipboard-check"></i></div>
+                                        <div class="data-source-info">
+                                            <h5>Audits</h5>
+                                            <p>Audit data including findings and corrective actions</p>
+                                        </div>
+                                    </div>
+                                    <div class="data-source-card">
+                                        <div class="data-source-icon"><i class="fas fa-book"></i></div>
+                                        <div class="data-source-info">
+                                            <h5>Training</h5>
+                                            <p>Training records and compliance data</p>
+                                        </div>
+                                    </div>
+                                    <div class="data-source-card">
+                                        <div class="data-source-icon"><i class="fas fa-tasks"></i></div>
+                                        <div class="data-source-info">
+                                            <h5>Processes</h5>
+                                            <p>Process metrics and performance data</p>
+                                        </div>
+                                    </div>
+                                    <div class="data-source-card">
+                                        <div class="data-source-icon"><i class="fas fa-users"></i></div>
+                                        <div class="data-source-info">
+                                            <h5>Users</h5>
+                                            <p>User activity and system usage data</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="builder-actions">
+                            <button class="btn btn-secondary">Cancel</button>
+                            <button class="btn btn-primary">Next: Select Fields</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="scheduled-reports">
+                    <div class="scheduled-reports-list">
+                        <div class="filters">
+                            <div class="search-box">
+                                <i class="fas fa-search"></i>
+                                <input type="text" id="scheduled-search" placeholder="Search scheduled reports...">
+                            </div>
+                            <div class="filter-group">
+                                <label for="frequency-filter">Frequency:</label>
+                                <select id="frequency-filter">
+                                    <option value="all">All</option>
+                                    <option value="daily">Daily</option>
+                                    <option value="weekly">Weekly</option>
+                                    <option value="monthly">Monthly</option>
+                                    <option value="quarterly">Quarterly</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Report Name</th>
+                                    <th>Type</th>
+                                    <th>Frequency</th>
+                                    <th>Last Run</th>
+                                    <th>Next Run</th>
+                                    <th>Recipients</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Monthly Quality Metrics</td>
+                                    <td>Quality Metrics Trend</td>
+                                    <td>Monthly</td>
+                                    <td>March 1, 2025</td>
+                                    <td>April 1, 2025</td>
+                                    <td>5 recipients</td>
+                                    <td><span class="status active">Active</span></td>
+                                    <td class="actions">
+                                        <button class="btn-icon view-report" title="View Report"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-icon edit-report" title="Edit Schedule"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-icon pause-report" title="Pause Schedule"><i class="fas fa-pause"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Weekly NCR Summary</td>
+                                    <td>NCR Analysis</td>
+                                    <td>Weekly</td>
+                                    <td>March 24, 2025</td>
+                                    <td>March 31, 2025</td>
+                                    <td>3 recipients</td>
+                                    <td><span class="status active">Active</span></td>
+                                    <td class="actions">
+                                        <button class="btn-icon view-report" title="View Report"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-icon edit-report" title="Edit Schedule"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-icon pause-report" title="Pause Schedule"><i class="fas fa-pause"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Quarterly Audit Report</td>
+                                    <td>Audit Summary</td>
+                                    <td>Quarterly</td>
+                                    <td>January 1, 2025</td>
+                                    <td>April 1, 2025</td>
+                                    <td>7 recipients</td>
+                                    <td><span class="status active">Active</span></td>
+                                    <td class="actions">
+                                        <button class="btn-icon view-report" title="View Report"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-icon edit-report" title="Edit Schedule"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-icon pause-report" title="Pause Schedule"><i class="fas fa-pause"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Daily Document Status</td>
+                                    <td>Document Status</td>
+                                    <td>Daily</td>
+                                    <td>March 26, 2025</td>
+                                    <td>March 27, 2025</td>
+                                    <td>2 recipients</td>
+                                    <td><span class="status inactive">Paused</span></td>
+                                    <td class="actions">
+                                        <button class="btn-icon view-report" title="View Report"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-icon edit-report" title="Edit Schedule"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-icon resume-report" title="Resume Schedule"><i class="fas fa-play"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="analytics">
+                    <!-- Analytics dashboard will go here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Quality Management System. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/reports.js"></script>
+    <script src="../js/auth.js"></script>
+</body>
+</html> 

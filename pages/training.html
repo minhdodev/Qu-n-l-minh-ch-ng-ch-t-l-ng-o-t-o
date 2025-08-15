@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quality Management System - Training</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/training.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>QMS</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="documents.html">Documents</a></li>
+                <li><a href="processes.html">Processes</a></li>
+                <li><a href="audits.html">Audits</a></li>
+                <li><a href="training.html" class="active">Training</a></li>
+                <li><a href="reports.html">Reports</a></li>
+            </ul>
+        </nav>
+        <div class="user-profile">
+            <span class="username">Admin User</span>
+            <div class="dropdown">
+                <img src="../images/avatar.png" alt="User Avatar" class="avatar">
+                <div class="dropdown-content">
+                    <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                    <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+        <button class="mobile-menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="dashboard.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="documents.html"><i class="fas fa-file-alt"></i> Document Control</a></li>
+                <li><a href="processes.html"><i class="fas fa-tasks"></i> Process Management</a></li>
+                <li><a href="audits.html"><i class="fas fa-clipboard-check"></i> Audit Management</a></li>
+                <li><a href="nonconformance.html"><i class="fas fa-exclamation-triangle"></i> Nonconformance</a></li>
+                <li><a href="metrics.html"><i class="fas fa-chart-line"></i> Performance Metrics</a></li>
+                <li><a href="training.html" class="active"><i class="fas fa-book"></i> Training Records</a></li>
+                <li class="admin-only"><a href="user-management.html"><i class="fas fa-users"></i> User Management</a></li>
+                <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <section class="training">
+                <div class="section-header">
+                    <h2>Training Management</h2>
+                    <div class="button-group">
+                        <button id="add-training-btn" class="btn btn-primary"><i class="fas fa-plus"></i> Add Training</button>
+                        <button id="create-plan-btn" class="btn btn-secondary"><i class="fas fa-calendar"></i> Create Plan</button>
+                    </div>
+                </div>
+                
+                <div class="training-dashboard">
+                    <div class="quick-stats">
+                        <div class="stat-card">
+                            <h3>Overall Compliance</h3>
+                            <div class="stat-value">92%</div>
+                            <div class="stat-desc">Training completion rate</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Scheduled</h3>
+                            <div class="stat-value">8</div>
+                            <div class="stat-desc">Training sessions</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Due This Month</h3>
+                            <div class="stat-value">12</div>
+                            <div class="stat-desc">Employee certifications</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Overdue</h3>
+                            <div class="stat-value">3</div>
+                            <div class="stat-desc">Employee certifications</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="training-tabs">
+                    <div class="tab active" data-tab="training-calendar">Training Calendar</div>
+                    <div class="tab" data-tab="my-training">My Training</div>
+                    <div class="tab" data-tab="training-records">Training Records</div>
+                    <div class="tab" data-tab="training-modules">Training Modules</div>
+                </div>
+                
+                <div class="tab-content active" id="training-calendar">
+                    <div class="filters">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="training-search" placeholder="Search training...">
+                        </div>
+                        <div class="filter-group">
+                            <label for="month-filter">Month:</label>
+                            <select id="month-filter">
+                                <option value="all">All Dates</option>
+                                <option value="current" selected>Current Month</option>
+                                <option value="next">Next Month</option>
+                                <option value="quarter">This Quarter</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="department-filter">Department:</label>
+                            <select id="department-filter">
+                                <option value="all" selected>All Departments</option>
+                                <option value="quality">Quality</option>
+                                <option value="production">Production</option>
+                                <option value="engineering">Engineering</option>
+                                <option value="hr">Human Resources</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="calendar-grid">
+                        <div class="calendar-header">
+                            <h3>April 2025</h3>
+                            <div class="calendar-navigation">
+                                <button><i class="fas fa-chevron-left"></i></button>
+                                <span class="current-month">April 2025</span>
+                                <button><i class="fas fa-chevron-right"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="calendar-day-header">Mon</div>
+                        <div class="calendar-day-header">Tue</div>
+                        <div class="calendar-day-header">Wed</div>
+                        <div class="calendar-day-header">Thu</div>
+                        <div class="calendar-day-header">Fri</div>
+                        <div class="calendar-day-header">Sat</div>
+                        <div class="calendar-day-header">Sun</div>
+                        
+                        <div class="calendar-day"></div>
+                        <div class="calendar-day"><div class="date">1</div></div>
+                        <div class="calendar-day"><div class="date">2</div></div>
+                        <div class="calendar-day">
+                            <div class="date">3</div>
+                            <div class="day-event">ISO 9001 Training (9:00 AM)</div>
+                        </div>
+                        <div class="calendar-day"><div class="date">4</div></div>
+                        <div class="calendar-day"><div class="date">5</div></div>
+                        <div class="calendar-day"><div class="date">6</div></div>
+                        
+                        <div class="calendar-day"><div class="date">7</div></div>
+                        <div class="calendar-day">
+                            <div class="date">8</div>
+                            <div class="day-event">Quality Tools Workshop (1:00 PM)</div>
+                        </div>
+                        <div class="calendar-day"><div class="date">9</div></div>
+                        <div class="calendar-day"><div class="date">10</div></div>
+                        <div class="calendar-day"><div class="date">11</div></div>
+                        <div class="calendar-day">
+                            <div class="date">12</div>
+                            <div class="day-event">Safety Training (10:00 AM)</div>
+                        </div>
+                        <div class="calendar-day"><div class="date">13</div></div>
+                        
+                        <div class="calendar-day"><div class="date">14</div></div>
+                        <div class="calendar-day"><div class="date">15</div></div>
+                        <div class="calendar-day"><div class="date">16</div></div>
+                        <div class="calendar-day"><div class="date">17</div></div>
+                        <div class="calendar-day">
+                            <div class="date">18</div>
+                            <div class="day-event">Process Improvement (2:00 PM)</div>
+                        </div>
+                        <div class="calendar-day"><div class="date">19</div></div>
+                        <div class="calendar-day"><div class="date">20</div></div>
+                        
+                        <div class="calendar-day"><div class="date">21</div></div>
+                        <div class="calendar-day">
+                            <div class="date">22</div>
+                            <div class="day-event">Risk Management (9:00 AM)</div>
+                        </div>
+                        <div class="calendar-day"><div class="date">23</div></div>
+                        <div class="calendar-day"><div class="date">24</div></div>
+                        <div class="calendar-day"><div class="date">25</div></div>
+                        <div class="calendar-day"><div class="date">26</div></div>
+                        <div class="calendar-day"><div class="date">27</div></div>
+                        
+                        <div class="calendar-day"><div class="date">28</div></div>
+                        <div class="calendar-day"><div class="date">29</div></div>
+                        <div class="calendar-day">
+                            <div class="date">30</div>
+                            <div class="day-event">Internal Auditor Training (9:00 AM)</div>
+                        </div>
+                        <div class="calendar-day"></div>
+                        <div class="calendar-day"></div>
+                        <div class="calendar-day"></div>
+                        <div class="calendar-day"></div>
+                    </div>
+                    
+                    <div class="upcoming-training">
+                        <h3>Upcoming Training Sessions</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Title</th>
+                                    <th>Time</th>
+                                    <th>Location</th>
+                                    <th>Instructor</th>
+                                    <th>Attendees</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2025-04-03</td>
+                                    <td>ISO 9001:2025 Updates</td>
+                                    <td>9:00 AM - 12:00 PM</td>
+                                    <td>Training Room A</td>
+                                    <td>John Doe</td>
+                                    <td>15/20</td>
+                                    <td class="actions">
+                                        <button class="btn-icon view-training" title="View Details"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-icon edit-training" title="Edit Training"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-icon register-training" title="Register"><i class="fas fa-user-plus"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2025-04-08</td>
+                                    <td>Quality Tools Workshop</td>
+                                    <td>1:00 PM - 5:00 PM</td>
+                                    <td>Conference Room</td>
+                                    <td>Jane Smith</td>
+                                    <td>12/15</td>
+                                    <td class="actions">
+                                        <button class="btn-icon view-training" title="View Details"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-icon edit-training" title="Edit Training"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-icon register-training" title="Register"><i class="fas fa-user-plus"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2025-04-12</td>
+                                    <td>Safety Training</td>
+                                    <td>10:00 AM - 12:00 PM</td>
+                                    <td>Production Floor</td>
+                                    <td>Michael Brown</td>
+                                    <td>25/30</td>
+                                    <td class="actions">
+                                        <button class="btn-icon view-training" title="View Details"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-icon edit-training" title="Edit Training"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-icon register-training" title="Register"><i class="fas fa-user-plus"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="my-training">
+                    <div class="my-training-summary">
+                        <h3>My Training Summary</h3>
+                        <div class="training-progress-bars">
+                            <div class="progress-item">
+                                <div class="progress-label">Required Training Completion</div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 85%"></div>
+                                </div>
+                                <div class="progress-value">85%</div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-label">Certifications Current</div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 100%"></div>
+                                </div>
+                                <div class="progress-value">100%</div>
+                            </div>
+                        </div>
+                        
+                        <h4>Upcoming Required Training</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Training</th>
+                                    <th>Due Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ISO 9001:2025 Updates</td>
+                                    <td>2025-04-30</td>
+                                    <td><span class="badge pending">Scheduled</span></td>
+                                    <td><button class="btn btn-small btn-secondary">View Details</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Annual Safety Refresher</td>
+                                    <td>2025-05-15</td>
+                                    <td><span class="badge pending">Not Started</span></td>
+                                    <td><button class="btn btn-small btn-secondary">Start Training</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <aside class="notifications-panel">
+            <h3>Notifications <span class="notification-count">5</span></h3>
+            <ul class="notifications-list">
+                <li class="notification unread">
+                    <div class="notification-icon"><i class="fas fa-file-alt"></i></div>
+                    <div class="notification-content">
+                        <p>Document QP-001 requires your approval</p>
+                        <span class="notification-time">1 hour ago</span>
+                    </div>
+                </li>
+                <li class="notification unread">
+                    <div class="notification-icon"><i class="fas fa-exclamation-circle"></i></div>
+                    <div class="notification-content">
+                        <p>NCR #2025-032 has been assigned to you</p>
+                        <span class="notification-time">3 hours ago</span>
+                    </div>
+                </li>
+                <li class="notification unread">
+                    <div class="notification-icon"><i class="fas fa-calendar-check"></i></div>
+                    <div class="notification-content">
+                        <p>Audit scheduled for April 5, 2025</p>
+                        <span class="notification-time">Yesterday</span>
+                    </div>
+                </li>
+                <li class="notification">
+                    <div class="notification-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="notification-content">
+                        <p>Training "ISO 9001:2025 Updates" due in 5 days</p>
+                        <span class="notification-time">2 days ago</span>
+                    </div>
+                </li>
+                <li class="notification">
+                    <div class="notification-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="notification-content">
+                        <p>Monthly quality metrics report available</p>
+                        <span class="notification-time">3 days ago</span>
+                    </div>
+                </li>
+            </ul>
+            <a href="#" class="view-all">View All Notifications</a>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Quality Management System. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+</body>
+</html> 

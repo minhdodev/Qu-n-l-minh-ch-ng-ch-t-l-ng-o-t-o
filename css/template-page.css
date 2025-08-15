@@ -1,0 +1,234 @@
+/*
+ * Template for Page-Specific CSS
+ * Copy this file and rename it to match your page (e.g., your-feature.css)
+ * Then customize it for your specific page needs
+ */
+
+/* Main page container styles */
+.your-feature {
+    padding: 1rem 0;
+}
+
+/* Dashboard section styles */
+.your-feature-dashboard {
+    margin-bottom: 2rem;
+}
+
+/* Stats cards grid */
+.your-feature-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.your-feature-stat-card {
+    background-color: var(--bg-card);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.your-feature-stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.your-feature-stat-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-medium);
+}
+
+.your-feature-stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.your-feature-stat-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Tabs navigation */
+.your-feature-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--border-light);
+    margin-bottom: 1.5rem;
+}
+
+.your-feature-tabs .tab {
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    color: var(--text-medium);
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.your-feature-tabs .tab:hover {
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+}
+
+.your-feature-tabs .tab.active {
+    color: var(--primary);
+    border-bottom: 2px solid var(--primary);
+}
+
+/* Cards grid layout */
+.your-feature-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.your-feature-card {
+    background-color: var(--bg-card);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.your-feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.your-feature-card-header {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.your-feature-card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--text-dark);
+}
+
+.your-feature-card-body {
+    padding: 1rem;
+}
+
+.your-feature-card-footer {
+    padding: 1rem;
+    border-top: 1px solid var(--border-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Chart containers */
+.chart-container {
+    background-color: var(--bg-card);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.chart-header h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.chart {
+    padding: 1rem;
+    height: 300px;
+}
+
+/* Custom status indicators */
+.your-feature-status {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.your-feature-status.status1 {
+    background-color: rgba(76, 175, 80, 0.15);
+    color: #2e7d32;
+}
+
+.your-feature-status.status2 {
+    background-color: rgba(33, 150, 243, 0.15);
+    color: #1976d2;
+}
+
+.your-feature-status.status3 {
+    background-color: rgba(255, 193, 7, 0.15);
+    color: #ff8f00;
+}
+
+/* Custom form styles */
+.your-feature-form .form-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.your-feature-form .form-group {
+    flex: 1;
+}
+
+.your-feature-form .form-group.full-width {
+    flex: 0 0 100%;
+}
+
+/* Responsiveness */
+@media (max-width: 1200px) {
+    .your-feature-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Add additional styles for larger screens */
+}
+
+@media (max-width: 992px) {
+    .your-feature-form .form-row {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    /* Add additional styles for medium screens */
+}
+
+@media (max-width: 768px) {
+    .your-feature-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .your-feature-tabs {
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    .your-feature-tabs .tab {
+        padding: 0.75rem 1rem;
+    }
+    
+    /* Add additional styles for small screens */
+}
+
+@media (max-width: 480px) {
+    /* Add additional styles for extra small screens */
+} 

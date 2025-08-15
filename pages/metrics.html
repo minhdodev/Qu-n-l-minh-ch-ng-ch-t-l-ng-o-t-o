@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quality Management System - Performance Metrics</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/metrics.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>QMS</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="documents.html">Documents</a></li>
+                <li><a href="processes.html">Processes</a></li>
+                <li><a href="audits.html">Audits</a></li>
+                <li><a href="training.html">Training</a></li>
+                <li><a href="reports.html">Reports</a></li>
+            </ul>
+        </nav>
+        <div class="user-profile">
+            <span class="username">Admin User</span>
+            <div class="dropdown">
+                <img src="../images/avatar.png" alt="User Avatar" class="avatar">
+                <div class="dropdown-content">
+                    <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                    <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+        <button class="mobile-menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="dashboard.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="documents.html"><i class="fas fa-file-alt"></i> Document Control</a></li>
+                <li><a href="processes.html"><i class="fas fa-tasks"></i> Process Management</a></li>
+                <li><a href="audits.html"><i class="fas fa-clipboard-check"></i> Audit Management</a></li>
+                <li><a href="nonconformance.html"><i class="fas fa-exclamation-triangle"></i> Nonconformance</a></li>
+                <li><a href="metrics.html" class="active"><i class="fas fa-chart-line"></i> Performance Metrics</a></li>
+                <li><a href="training.html"><i class="fas fa-book"></i> Training Records</a></li>
+                <li class="admin-only"><a href="user-management.html"><i class="fas fa-users"></i> User Management</a></li>
+                <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <section class="metrics">
+                <div class="section-header">
+                    <h2>Performance Metrics</h2>
+                    <div class="button-group">
+                        <button id="export-metrics-btn" class="btn btn-secondary"><i class="fas fa-file-export"></i> Export</button>
+                        <button id="add-metric-btn" class="btn btn-primary"><i class="fas fa-plus"></i> Add Metric</button>
+                    </div>
+                </div>
+                
+                <div class="metrics-dashboard">
+                    <div class="time-filter">
+                        <button class="time-option active">Last 30 Days</button>
+                        <button class="time-option">Quarter</button>
+                        <button class="time-option">Year</button>
+                        <button class="time-option">Custom</button>
+                    </div>
+                    
+                    <div class="metrics-overview">
+                        <div class="metric-card highlight">
+                            <div class="metric-header">
+                                <h3>Overall Quality Score</h3>
+                                <div class="metric-trend up">
+                                    <i class="fas fa-arrow-up"></i> 2.1%
+                                </div>
+                            </div>
+                            <div class="metric-value large">94.3%</div>
+                            <div class="metric-chart" id="quality-score-sparkline"></div>
+                            <div class="metric-footer">Target: 95%</div>
+                        </div>
+                        
+                        <div class="metric-card">
+                            <div class="metric-header">
+                                <h3>First Pass Yield</h3>
+                                <div class="metric-trend up">
+                                    <i class="fas fa-arrow-up"></i> 1.5%
+                                </div>
+                            </div>
+                            <div class="metric-value">92.8%</div>
+                            <div class="metric-chart" id="fpy-sparkline"></div>
+                            <div class="metric-footer">Target: 95%</div>
+                        </div>
+                        
+                        <div class="metric-card">
+                            <div class="metric-header">
+                                <h3>Defect Rate (PPM)</h3>
+                                <div class="metric-trend down good">
+                                    <i class="fas fa-arrow-down"></i> 12.4%
+                                </div>
+                            </div>
+                            <div class="metric-value">236</div>
+                            <div class="metric-chart" id="defect-sparkline"></div>
+                            <div class="metric-footer">Target: &lt;200 PPM</div>
+                        </div>
+                        
+                        <div class="metric-card">
+                            <div class="metric-header">
+                                <h3>Customer Complaints</h3>
+                                <div class="metric-trend down good">
+                                    <i class="fas fa-arrow-down"></i> 8.3%
+                                </div>
+                            </div>
+                            <div class="metric-value">11</div>
+                            <div class="metric-chart" id="complaints-sparkline"></div>
+                            <div class="metric-footer">Target: &lt;10 per month</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="metrics-tabs">
+                    <div class="tab active" data-tab="production-metrics">Production</div>
+                    <div class="tab" data-tab="quality-metrics">Quality</div>
+                    <div class="tab" data-tab="supplier-metrics">Supplier</div>
+                    <div class="tab" data-tab="customer-metrics">Customer</div>
+                    <div class="tab admin-only" data-tab="custom-metrics">Custom Metrics</div>
+                </div>
+                
+                <div class="tab-content active" id="production-metrics">
+                    <div class="metrics-charts">
+                        <div class="chart-container large">
+                            <div class="chart-header">
+                                <h3>Production Yield Trend</h3>
+                                <div class="chart-actions">
+                                    <button class="btn-icon"><i class="fas fa-expand"></i></button>
+                                    <button class="btn-icon"><i class="fas fa-download"></i></button>
+                                </div>
+                            </div>
+                            <div class="chart" id="production-yield-chart"></div>
+                        </div>
+                        
+                        <div class="chart-container">
+                            <div class="chart-header">
+                                <h3>Defect Distribution</h3>
+                                <div class="chart-actions">
+                                    <button class="btn-icon"><i class="fas fa-expand"></i></button>
+                                    <button class="btn-icon"><i class="fas fa-download"></i></button>
+                                </div>
+                            </div>
+                            <div class="chart" id="defect-distribution-chart"></div>
+                        </div>
+                        
+                        <div class="chart-container">
+                            <div class="chart-header">
+                                <h3>Scrap Rate by Product Line</h3>
+                                <div class="chart-actions">
+                                    <button class="btn-icon"><i class="fas fa-expand"></i></button>
+                                    <button class="btn-icon"><i class="fas fa-download"></i></button>
+                                </div>
+                            </div>
+                            <div class="chart" id="scrap-rate-chart"></div>
+                        </div>
+                        
+                        <div class="chart-container large">
+                            <div class="chart-header">
+                                <h3>Defect Type Analysis</h3>
+                                <div class="chart-actions">
+                                    <button class="btn-icon"><i class="fas fa-expand"></i></button>
+                                    <button class="btn-icon"><i class="fas fa-download"></i></button>
+                                </div>
+                            </div>
+                            <div class="chart" id="defect-type-chart"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="metrics-details">
+                        <h3>Production Metrics Details</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Metric</th>
+                                    <th>Current</th>
+                                    <th>Previous</th>
+                                    <th>Change</th>
+                                    <th>Target</th>
+                                    <th>Status</th>
+                                    <th>Trend</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>First Pass Yield</td>
+                                    <td>92.8%</td>
+                                    <td>91.3%</td>
+                                    <td><span class="change positive">+1.5%</span></td>
+                                    <td>95.0%</td>
+                                    <td><span class="status warning">Below Target</span></td>
+                                    <td><div class="mini-sparkline">▁▃▂▅▄▆▅▇</div></td>
+                                </tr>
+                                <tr>
+                                    <td>Defect Rate (PPM)</td>
+                                    <td>236</td>
+                                    <td>270</td>
+                                    <td><span class="change positive">-12.4%</span></td>
+                                    <td>&lt;200</td>
+                                    <td><span class="status warning">Above Target</span></td>
+                                    <td><div class="mini-sparkline">█▇▆▅▃▂▃▂</div></td>
+                                </tr>
+                                <tr>
+                                    <td>Scrap Rate</td>
+                                    <td>1.2%</td>
+                                    <td>1.4%</td>
+                                    <td><span class="change positive">-0.2%</span></td>
+                                    <td>&lt;1.0%</td>
+                                    <td><span class="status warning">Above Target</span></td>
+                                    <td><div class="mini-sparkline">█▇▅▆▃▂▃▂</div></td>
+                                </tr>
+                                <tr>
+                                    <td>Production Efficiency</td>
+                                    <td>87.5%</td>
+                                    <td>86.2%</td>
+                                    <td><span class="change positive">+1.3%</span></td>
+                                    <td>90.0%</td>
+                                    <td><span class="status warning">Below Target</span></td>
+                                    <td><div class="mini-sparkline">▁▂▃▂▅▆▅▇</div></td>
+                                </tr>
+                                <tr>
+                                    <td>Equipment Downtime</td>
+                                    <td>3.2%</td>
+                                    <td>3.5%</td>
+                                    <td><span class="change positive">-0.3%</span></td>
+                                    <td>&lt;3.0%</td>
+                                    <td><span class="status warning">Above Target</span></td>
+                                    <td><div class="mini-sparkline">█▇▅▃▂▄▃▂</div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="quality-metrics">
+                    <!-- Quality metrics content will go here -->
+                </div>
+                
+                <div class="tab-content" id="supplier-metrics">
+                    <!-- Supplier metrics content will go here -->
+                </div>
+                
+                <div class="tab-content" id="customer-metrics">
+                    <!-- Customer metrics content will go here -->
+                </div>
+                
+                <div class="tab-content" id="custom-metrics">
+                    <!-- Custom metrics content will go here (admin only) -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Quality Management System. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/metrics.js"></script>
+    <script src="../js/auth.js"></script>
+</body>
+</html> 
